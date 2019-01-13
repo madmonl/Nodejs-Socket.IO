@@ -5,8 +5,8 @@ socket.on('connect', () => {
 });
 
 socket.on('newMessage', (message) => {
-    console.log(`new message recieved: ${JSON.stringify(message)}`)
-  })
+  console.log(`new message recieved: ${JSON.stringify(message)}`)
+})
 
 socket.on('disconnect', () => {
   console.log('disconnected from server')
