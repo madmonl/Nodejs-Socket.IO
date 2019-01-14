@@ -1,13 +1,13 @@
 const expect = require('expect')
-const { generatedMessage } = require('./message')
+const { generateMessage } = require('./message')
 
 describe('generateMessage', () => {
   it('should generate correct message', () => {
     const from = 'liad'
     const text = 'test text'
-    const message = generatedMessage(from, text)
+    const message = generateMessage(from, text)
 
+    expect(typeof message.createdAt).toBe('number')
     expect(message).toInclude({from, text})
-    expect(message.createdAt).toBe(Number)
   })
 })

@@ -25,9 +25,10 @@ io.on('connection', (socket) => {
     generateMessage("Admin", "New user joined")
   )
 
-  socket.on('createMessage', message => {
+  socket.on('createMessage', (message, ack) => {
     console.log(message)
-    io.emit('newMessage', generateMessage(...message))
+    io.emit('newMessage', generateMessage(message.from, message.text))
+    ack('this is from the server!')
   })
   
   socket.on('disconnect', () => console.log('user disconnected'))
